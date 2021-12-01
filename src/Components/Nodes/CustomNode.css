@@ -1,0 +1,13 @@
+.custom-node {
+    @apply text-white shadow-md h-16 w-48 m-0 rounded text-center cursor-pointer;
+}
+
+.sidebar .custom-node {
+    @apply mt-2 mb-2;
+}
+
+.custom-selected {
+    box-shadow: inset 0 0 0 2px black;
+}
+
+

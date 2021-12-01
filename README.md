@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+# React.js Challenge
+## Description
+### Frontend
+For the frontend I chose a minimal create-react-app project and used the recommended ReactFlow and TailwindCSS.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Backend
+The backend is based on [AdonisJS](https://adonisjs.com/). I chose it for simplicity to set up, the api version being relatively lightweight and
+the first level database support.
 
-## Available Scripts
+The api has been kept very simple and has very small modifications to the standard installation, for
+example enabled CORS.
+All backend code files written by me are in the `api/app/Controllers` and `api/app/Models` folders.
+I would have liked to flesh out the api with an own save state per user that would be identified via their key
+in the localstorage, but I did not have time to do so in the recommended time frame.
 
-In the project directory, you can run:
+### General
+The challenge has been developed focusing on the main development process. Things like for example heavy and critical
+security risks in the currently used npm packages would be handled in a real environment. 
 
-### `npm start`
+## Installation
+### Frontend Dependencies
+```shell
+# Use lock file
+npm ci
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#OR: 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Fresh install 
+npm install
+```
+### Backend Dependencies
 
-### `npm test`
+In the `api/.env` file settings for a database can be made. 
+AdonisJS supports following databases: https://docs.adonisjs.com/guides/database/introduction#drivers-config
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For easiest use set the `DB_CONNECTION` to `sqlite`, which does not
+require an external database.
 
-### `npm run build`
+```shell
+# NPM dependencies
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Setup database
+node ace migration:run
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Starting the application
+### Start frontend
+```shell
+npm run start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Start backend
+```shell
+# Serve the api
+node ace serve
+```
